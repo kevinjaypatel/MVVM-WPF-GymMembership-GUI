@@ -1,0 +1,33 @@
+﻿<Window x:Class="GymMembers.View.ChangeWindow"
+        x:Name="changeWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymMembers.View"
+        mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource Locator}, Path=ChangeViewModel}"
+        Title="Change Membership" Height="237" Width="300">
+  <Grid Background="#FFECEAEA">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="10"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="30"/>
+    </Grid.RowDefinitions>
+    <Label x:Name="label" Content="First Name:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+    <Label x:Name="label1" Content="Last Name:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+    <Label x:Name="label2" Content="E-mail:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding EnteredFName, UpdateSourceTrigger=PropertyChanged}" Width="120" Grid.Row="1" Grid.Column="1"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding EnteredLName, UpdateSourceTrigger=PropertyChanged}" Width="120" Grid.Row="2" Grid.Column="1"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding EnteredEmail, UpdateSourceTrigger=PropertyChanged}" Width="120" Grid.Row="3" Grid.Column="1"/>
+        <Button x:Name="button" Content="Update" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding UpdateCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=changeWindow}" Width="75" Grid.Row="4" Grid.Column="0"/>
+        <Button x:Name="button1" Content="Delete" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding DeleteCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=changeWindow}" Width="75" Grid.Row="4" Grid.Column="1"/>
+
+  </Grid>
+</Window>
